@@ -5,11 +5,6 @@ const {check}=require('express-validator')
 const {validarCampos}=require('../midlewares/validar-campos.js')
 
 const router = Router();
-router.get('/',(req,res)=>{
-    res.json({
-        ok:true
-    })
-});
 
 
 

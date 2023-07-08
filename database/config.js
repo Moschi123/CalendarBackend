@@ -1,20 +1,28 @@
-const mongoose=require('mongoose');
-require('dotenv').config();
-const dbConnection= async()=>{
+const mongoose = require('mongoose');
+
+
+const dbConnection = async() => {
 
     try {
-        mongoose.connect(process.env.DB_CNN,{
-            useNewUrlParser: true,
+        
+        await mongoose.connect( process.env.DB_CNN , {
+            useNewUrlParser: true, 
             useUnifiedTopology: true,
-           // Agrega esta opción para evitar advertencias de deprecación
+            useCreateIndex: true
         });
-      console.log('DB online')
+
+        console.log('DB Online');
+
+
     } catch (error) {
         console.log(error);
-        throw new Error('Error a la hora de inicializar BD')
+        throw new Error('Error a la hora de inicializar BD');
     }
+
+
 }
 
-module.exports={
+
+module.exports = {
     dbConnection
 }
